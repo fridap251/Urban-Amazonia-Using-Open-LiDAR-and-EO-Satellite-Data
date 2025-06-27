@@ -1,49 +1,98 @@
-This project reveals a previously undocumented network of rooftop agriculture and ritual spatial structures in São Paulo’s informal settlements. Using high-resolution PMSP LiDAR tiles and Amazonia-1 satellite imagery (WFI), we detected micro-elevation patterns, vegetation anomalies, and alignments consistent with historic Afro-Brazilian and Indigenous settlement logics. We verified the findings using STAC metadata, inverse optimization heuristics, and georeferenced colonial maps. Our open pipeline and layered analysis demonstrate how cloud-native geospatial data can surface archaeological narratives under modern urban canopies.
+# Unearthing Rooftop Agroheritage and Sacred Layouts in Urban Amazonia
 
-📦 Data Sources:
-Source	Type	Access
-PMSP LiDAR	1m LiDAR Point Cloud	s3://ept-m3dc-pmsp / Entwine
-Amazonia-1 Satellite	WFI Scenes, 60m resolution	STAC: https://stac.scitekno.com.br/v100
-Historical Maps	São Paulo Cadastre 1881	Municipal Archive
-Oral History	Projeto Quilombola Vargem Grande	Local Interviews, 2021–2024
+This project combines open-access LiDAR and Earth Observation (EO) satellite data to uncover archaeological and cultural structures hidden beneath São Paulo’s urban canopy. Using high-resolution LiDAR from Prefeitura Municipal de São Paulo (PMSP) and daily Amazonia-1 WFI imagery, we discovered rooftop agriculture zones, geometric alignments, and remnants of sacred Afro-Brazilian spatial logic—validated through STAC catalogs, historical maps, and oral archives.
 
-🛰️ Methods:
-LiDAR Processing (PDAL + Entwine): Ground filtering, DSM/DTM generation, hillshade rendering.
+---
 
-Satellite NDVI Analysis (Amazonia-1 WFI): Daily imagery stacked over 90 days to identify persistent greening.
+## 🌍 Objectives
 
-Anomaly Detection: Detected 0.3–0.8m rooftop elevation differences and time-aligned chlorophyll returns.
+- Detect rooftop agriculture and microterraces in informal settlements
+- Identify alignment patterns consistent with sacred/ceremonial layouts
+- Cross-validate with Amazonia-1 vegetation anomalies
+- Package findings for reproducible analysis and open visualization
 
-Historic Overlay: Georeferenced 19th-century municipal plans showing pre-urban alignments.
+---
 
-STAC Search: Queried and downloaded relevant Amazonia-1 assets for post-rainy season window (e.g., March–May 2024).
+## 📦 Data Sources
 
-📍 Coordinates (Dual Verified):
-Centroid: -23.5897, -46.6791
-Verified by:
+| Dataset | Type | Source |
+|--------|------|--------|
+| **PMSP LiDAR** | 1m LiDAR (Entwine + LAZ) | `s3://ept-m3dc-pmsp` |
+| **Amazonia-1 Satellite** | WFI imagery (60m, COG) | [STAC API](https://stac.scitekno.com.br/v100) |
+| **Historical Maps** | Raster/Vector overlays | Arquivo Histórico de São Paulo |
+| **Oral Knowledge** | Local records | Projeto Quilombola Vargem Grande |
 
-LiDAR DSM terracing algorithm (QGIS, Slope + Hillshade)
+---
 
-Amazonia-1 WFI vegetation anomaly stack (NDVI persistence layer)
+## 📁 Project Structure
 
-📊 Results:
-128 rooftops flagged as agricultural
+# Unearthing Rooftop Agroheritage and Sacred Layouts in Urban Amazonia
 
-5 aligned terrace patterns indicating spiritual or communal layouts
+This project combines open-access LiDAR and Earth Observation (EO) satellite data to uncover archaeological and cultural structures hidden beneath São Paulo’s urban canopy. Using high-resolution LiDAR from Prefeitura Municipal de São Paulo (PMSP) and daily Amazonia-1 WFI imagery, we discovered rooftop agriculture zones, geometric alignments, and remnants of sacred Afro-Brazilian spatial logic—validated through STAC catalogs, historical maps, and oral archives.
 
-2 zones matched historical layouts in old cadastral maps
+---
 
-🧠 Significance:
-First mapping of informal rooftop agriculture at scale in São Paulo
+## 🌍 Objectives
 
-Surfaces hidden cultural practices under legal/institutional blind spots
+- Detect rooftop agriculture and microterraces in informal settlements
+- Identify alignment patterns consistent with sacred/ceremonial layouts
+- Cross-validate with Amazonia-1 vegetation anomalies
+- Package findings for reproducible analysis and open visualization
 
-Validates open remote sensing (LiDAR + EO) as archaeology tools in dense cities
+---
 
-💡 What’s Next:
-Ground-truth validation via drone imagery or NGO field partnerships
+## 📦 Data Sources
 
-Extend method to Manaus and Belém using NICFI + GEDI + LiDAR fusion
+| Dataset | Type | Source |
+|--------|------|--------|
+| **PMSP LiDAR** | 1m LiDAR (Entwine + LAZ) | `s3://ept-m3dc-pmsp` |
+| **Amazonia-1 Satellite** | WFI imagery (60m, COG) | [STAC API](https://stac.scitekno.com.br/v100) |
+| **Historical Maps** | Raster/Vector overlays | Arquivo Histórico de São Paulo |
+| **Oral Knowledge** | Local records | Projeto Quilombola Vargem Grande |
 
-Publish on OpenAerialMap and contribute to open STAC catalogs
+---
+
+## 📁 Project Structure
+
+amazonian-discovery-2025/
+├── data/ # Source LAZ, COGs, GeoJSONs
+├── notebooks/ # Jupyter analysis steps
+├── scripts/ # STAC fetchers, PDAL configs
+├── outputs/ # Final maps, tiles, videos
+├── presentation/ # Slides, animations, video
+├── environment.yml # Conda environment for full repro
+├── README.md
+├── submission.md
+
+yaml
+Copy
+Edit
+
+---
+
+## 🛰️ Tools Used
+
+- [PDAL](https://pdal.io/) – LiDAR processing
+- [STAC tools](https://stacspec.org/) – EO catalog querying
+- [GDAL / rasterio](https://rasterio.readthedocs.io/) – NDVI + geospatial transforms
+- [QGIS](https://qgis.org/) – Final cartography
+- [Blender](https://www.blender.org/) – 3D LiDAR flythrough
+- [CesiumJS](https://cesium.com/platform/cesiumjs/) – Interactive viewer (optional)
+
+---
+
+## 📊 Key Discoveries
+
+- 📍 Rooftop agricultural zones (centroid: `-23.5897, -46.6791`)
+- 🌀 Alignment with precolonial spatial layouts
+- 📈 Vegetation growth confirmed via 90-day NDVI time series
+
+---
+
+## 🧪 Reproducibility
+
+Clone this repo, activate the Conda environment, and run:
+
+```bash
+jupyter lab
 
