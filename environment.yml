@@ -1,0 +1,30 @@
+name: amazonian-archaeo
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - rasterio
+  - geopandas
+  - pdal
+  - gdal
+  - ipyleaflet
+  - ipywidgets
+  - stactools
+  - pystac
+  - pystac-client
+  - requests
+  - scikit-learn
+  - ffmpeg
+  - pip
+  - pip:
+      - laspy
+      - rio-cogeo
+      - rio-tiler
+      - plotly
+      - keplergl
